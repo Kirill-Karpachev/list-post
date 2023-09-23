@@ -1,33 +1,19 @@
-import { TPost } from "../../model/post.type";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface IPostState {
-  posts: TPost[];
-  isLoading: boolean;
-  error: string;
+  pageCount: number;
 }
 
 const initialState: IPostState = {
-  posts: [],
-  isLoading: false,
-  error: "",
+  pageCount: 1,
 };
 
 export const postSlice = createSlice({
   name: "post",
   initialState,
   reducers: {
-    postsFetching(state) {
-      state.isLoading = true;
-    },
-    postsFetchingSuccess(state, action: PayloadAction<TPost[]>) {
-      state.posts = action.payload;
-      state.isLoading = false;
-      state.error = "";
-    },
-    postsFetchingError(state, action: PayloadAction<string>) {
-      state.isLoading = false;
-      state.error = action.payload;
+    postsPageCount(state, action: PayloadAction<number>) {
+      state.pageCount = action.payload;
     },
   },
 });

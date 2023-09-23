@@ -3,3 +3,7 @@ export type TPost = {
   title: string;
   body: string;
 };
+
+export type TLayout = {
+  children: string | JSX.Element;
+};

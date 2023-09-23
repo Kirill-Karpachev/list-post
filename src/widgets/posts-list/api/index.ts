@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
-import { TPost } from "../model/post.type";
+import { TPost } from "../../../shared";
 
 export const postAPI = createApi({
   reducerPath: "postAPI",
