@@ -1,9 +1,11 @@
 import { FC } from "react";
-import { ListChildComponentProps } from "react-window";
 
-export const PostItem: FC<ListChildComponentProps> = ({ index, style }) => {
+export const PostItem: FC<{ index: number; style: string }> = ({
+  index,
+  style,
+}): JSX.Element => {
   return (
-    <div style={style}>
+    <div className={style}>
       <p>{index + 1}</p>
     </div>
   );
