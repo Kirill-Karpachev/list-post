@@ -10,16 +10,16 @@ import styles from "./index.module.scss";
 export const PostItem: FC<IPostItem> = ({ post, type }): JSX.Element => {
   const navigate = useNavigate();
 
-  const goPost = (id: number) =>
+  const goPost = (id: number = 1) =>
     type === "view" ? navigate(`/${id}`) : navigate(`/`);
   return (
     <>
       <h2 className={styles.post_item__title}>
         {post?.id}. {post?.title}
       </h2>
-      <p className={styles.post_item__text}>{post.body}</p>
+      <p className={styles.post_item__text}>{post?.body}</p>
 
-      <Button variant="contained" onClick={() => goPost(post.id)}>
+      <Button variant="contained" onClick={() => goPost(post?.id)}>
         {type === "view" ? "Просмотр" : "Назад"}
       </Button>
     </>
